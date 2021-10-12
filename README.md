@@ -1,0 +1,2 @@
+# avostore
+Next js app 
