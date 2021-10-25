@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react"
-import NavBar from '../components/NavBar'
 import Link from "next/link"
 
 const Home = () => {
@@ -13,7 +12,6 @@ const Home = () => {
 
     return (
         <div>
-            <NavBar />
             <h1>Hola mundo!</h1>
             {
                 productList.map(product =>
