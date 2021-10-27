@@ -1,30 +1,23 @@
 import React, { useState, useEffect } from "react"
-import Link from "next/link"
+import Layout from '@components/Layout'
+import KawaiiHeader from '@components/KawaiiHeader'
+import ProductList from '@components/ProductList'
 
-const Home = () => {
+const HomePage = () => {
     const [productList, setProductList] = useState([])
 
     useEffect(() => {
         window.fetch('/api/avo')
             .then(response => response.json())
-            .then(({ data, length }) => setProductList(data))
+            .then(({ data }) => setProductList(data))
     }, [])
 
     return (
-        <div>
-            <h1>Hola mundo!</h1>
-            {
-                productList.map(product =>
-                    <div key={product.id}>
-
-                        <Link href={`/product/${product.id}`}>
-                            <a>{product.name}</a>
-                        </Link>
-                    </div>
-                )
-            }
-        </div>
+        <Layout>
+            <KawaiiHeader />
+            <ProductList products={productList} />
+        </Layout>
     )
 }
 
-export default Home
+export default HomePage

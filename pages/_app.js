@@ -1,5 +1,7 @@
 // import App from 'next/app'
-import Layout from '@components/Layout'
+import CartProvider from '@store/Cart'
+import 'semantic-ui-css/semantic.min.css'
+import '../global.css'
 
 // https://nextjs.org/docs/advanced-features/custom-app
 
@@ -9,9 +11,9 @@ function MyApp({ Component, pageProps }) {
     // Layout
     // Props adicionales
 
-    return <Layout>
+    return <CartProvider>
         <Component {...pageProps} />
-    </Layout>
+    </CartProvider>
 }
 
 // Only uncomment this method if you have blocking data requirements for
