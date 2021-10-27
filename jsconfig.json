@@ -2,9 +2,10 @@
     "compilerOptions": {
       "baseUrl": "./",
       "paths": {
-        "@components/*": [
-          "components/*"
-        ]
+        "@database": ["database/db.js"],
+        "@cors": ["cors-middleware.js"],
+        "@components/*": ["components/*"],
+        "@store/*": ["store/*"]
       }
     }
   }
