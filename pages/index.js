@@ -1,16 +1,27 @@
 import React, { useState, useEffect } from "react"
+import fetch from 'isomorphic-unfetch'
 import Layout from '@components/Layout'
 import KawaiiHeader from '@components/KawaiiHeader'
 import ProductList from '@components/ProductList'
 
-const HomePage = () => {
-    const [productList, setProductList] = useState([])
+export const getServerSideProps = async () => { // Se ejecuta en el servidor
+    const response = await fetch('https://avostore.vercel.app/api/avo')
+    const { data } = await response.json()
 
-    useEffect(() => {
+    return {
+        props: {
+            productList: data
+        }
+    }
+}
+
+const HomePage = ({ productList }) => {
+    /* const [productList, setProductList] = useState([])
+    useEffect(() => { // Siempre se ejecuta en el cliente (Client side renderer)
         window.fetch('/api/avo')
             .then(response => response.json())
             .then(({ data }) => setProductList(data))
-    }, [])
+    }, []) */
 
     return (
         <Layout>
