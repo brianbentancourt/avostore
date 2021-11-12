@@ -4,7 +4,8 @@ import Layout from '@components/Layout'
 import KawaiiHeader from '@components/KawaiiHeader'
 import ProductList from '@components/ProductList'
 
-export const getServerSideProps = async () => { // Se ejecuta en el servidor
+//pagina estatica
+export const getStaticProps = async () => { // Se ejecuta en el servidor, solo funciona en las pages
     const response = await fetch('https://avostore.vercel.app/api/avo')
     const { data } = await response.json()
 
