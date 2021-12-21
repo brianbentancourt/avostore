@@ -5,6 +5,12 @@ import '../global.css'
 
 // https://nextjs.org/docs/advanced-features/custom-app
 
+export function reportWebVitals(metrics) {
+    // analytics - calibre
+    // serverAnalytics.log(metrics)
+    console.log(metrics)
+}
+
 function MyApp({ Component, pageProps }) {
     // Providers (Context)
     // Themes
