@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import fetch from 'isomorphic-unfetch'
 import Layout from '@components/Layout'
 import KawaiiHeader from '@components/KawaiiHeader'
 import ProductList from '@components/ProductList'
+import Link from 'next/link'
 
 //pagina estatica
 export const getStaticProps = async () => { // Se ejecuta en el servidor, solo funciona en las pages
@@ -27,7 +28,18 @@ const HomePage = ({ productList }) => {
     return (
         <Layout>
             <KawaiiHeader />
+            <section>
+                <Link href="/yes-or-no">
+                    <a>¿Deberia comer un avo hoy?</a>
+                </Link>
+            </section>
             <ProductList products={productList} />
+            <style jsx>{`
+                section {
+                text-align: center;
+                margin-bottom: 2rem;
+                }
+            `}</style>
         </Layout>
     )
 }
